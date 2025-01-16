@@ -45,7 +45,8 @@ class _MyAppState extends ConsumerState<MyApp> {
           return loggedInRoute;
         }
         return loggedOutRoute;
-      }) ,
+      }), 
+     routeInformationParser: const RoutemasterParser(),
     ), error: (error,_)=>ErrorText(error: error.toString()), loading: ()=>const Loader());
   }
 }
