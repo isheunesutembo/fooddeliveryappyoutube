@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryappyoutube/features/categories/widget/category_widget.dart';
+import 'package:fooddeliveryappyoutube/features/menu/widgets/all_menu_widget.dart';
 import 'package:fooddeliveryappyoutube/features/promotion/widgets/promotions_widget.dart';
 import 'package:fooddeliveryappyoutube/features/search/widgets/search_field_widget.dart';
 import 'package:fooddeliveryappyoutube/utils/color.dart';
@@ -70,9 +71,36 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 120,
-                child: CategoryWidget(),
+            const  Padding(
+                padding:  EdgeInsets.all(8.0),
+                child:  SizedBox(
+                  height: 120,
+                  child: CategoryWidget(),
+                ),
+              ),
+                const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Your food",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight:FontWeight.bold
+                    ),),
+                    Text("See All",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 11,
+                      fontWeight:FontWeight.w600
+                    ),)
+                  ],
+                ),
+              ),
+         const     Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AllMenuWidget(),
               )
             ],
           ),

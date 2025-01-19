@@ -8,12 +8,11 @@ part of 'promotion_model.dart';
 
 _$PromotionModelImpl _$$PromotionModelImplFromJson(Map<String, dynamic> json) =>
     _$PromotionModelImpl(
-      images:
-          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$$PromotionModelImplToJson(
         _$PromotionModelImpl instance) =>
     <String, dynamic>{
-      'images': instance.images,
+      'image': instance.image,
     };

@@ -10,8 +10,8 @@ class CategoryItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        height: 80,
-        width: 80,
+        height: 60,
+        width: 100,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -19,8 +19,8 @@ class CategoryItemWidget extends StatelessWidget {
         child: Column(
          mainAxisAlignment: MainAxisAlignment.center, 
         children: [
-           Image.asset(
-           category.image!.toString(),
+           CachedNetworkImage(
+           imageUrl: category.image!.toString(),
           fit: BoxFit.fill,
           width: 50,
           height: 50,
