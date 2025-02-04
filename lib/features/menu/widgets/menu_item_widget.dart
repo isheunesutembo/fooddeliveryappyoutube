@@ -26,7 +26,7 @@ class MenuItemWidget extends StatelessWidget {
                Center(
                  child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                   child: Image.asset(menuModel.image!,
+                   child: Image.network(menuModel.image!,
                    fit: BoxFit.fill,
                    height: 100,
                    width: 166,),
