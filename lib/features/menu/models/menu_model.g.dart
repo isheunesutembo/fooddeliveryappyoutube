@@ -14,6 +14,9 @@ _$MenuModelImpl _$$MenuModelImplFromJson(Map<String, dynamic> json) =>
       price: (json['price'] as num?)?.toDouble(),
       quantity: json['quantity'] as String?,
       menuId: json['menuId'] as String,
+      ingredients: (json['ingredients'] as List<dynamic>?)
+          ?.map((e) => IngredientModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       categoryId: json['categoryId'] as String?,
     );
 
@@ -25,5 +28,6 @@ Map<String, dynamic> _$$MenuModelImplToJson(_$MenuModelImpl instance) =>
       'price': instance.price,
       'quantity': instance.quantity,
       'menuId': instance.menuId,
+      'ingredients': instance.ingredients,
       'categoryId': instance.categoryId,
     };

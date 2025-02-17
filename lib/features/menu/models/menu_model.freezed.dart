@@ -26,6 +26,7 @@ mixin _$MenuModel {
   double? get price => throw _privateConstructorUsedError;
   String? get quantity => throw _privateConstructorUsedError;
   String get menuId => throw _privateConstructorUsedError;
+  List<IngredientModel>? get ingredients => throw _privateConstructorUsedError;
   String? get categoryId => throw _privateConstructorUsedError;
 
   /// Serializes this MenuModel to a JSON map.
@@ -50,6 +51,7 @@ abstract class $MenuModelCopyWith<$Res> {
       double? price,
       String? quantity,
       String menuId,
+      List<IngredientModel>? ingredients,
       String? categoryId});
 }
 
@@ -74,6 +76,7 @@ class _$MenuModelCopyWithImpl<$Res, $Val extends MenuModel>
     Object? price = freezed,
     Object? quantity = freezed,
     Object? menuId = null,
+    Object? ingredients = freezed,
     Object? categoryId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -101,6 +104,10 @@ class _$MenuModelCopyWithImpl<$Res, $Val extends MenuModel>
           ? _value.menuId
           : menuId // ignore: cast_nullable_to_non_nullable
               as String,
+      ingredients: freezed == ingredients
+          ? _value.ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
       categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -124,6 +131,7 @@ abstract class _$$MenuModelImplCopyWith<$Res>
       double? price,
       String? quantity,
       String menuId,
+      List<IngredientModel>? ingredients,
       String? categoryId});
 }
 
@@ -146,6 +154,7 @@ class __$$MenuModelImplCopyWithImpl<$Res>
     Object? price = freezed,
     Object? quantity = freezed,
     Object? menuId = null,
+    Object? ingredients = freezed,
     Object? categoryId = freezed,
   }) {
     return _then(_$MenuModelImpl(
@@ -173,6 +182,10 @@ class __$$MenuModelImplCopyWithImpl<$Res>
           ? _value.menuId
           : menuId // ignore: cast_nullable_to_non_nullable
               as String,
+      ingredients: freezed == ingredients
+          ? _value._ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
       categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -191,7 +204,9 @@ class _$MenuModelImpl implements _MenuModel {
       this.price,
       this.quantity,
       required this.menuId,
-      this.categoryId});
+      final List<IngredientModel>? ingredients,
+      this.categoryId})
+      : _ingredients = ingredients;
 
   factory _$MenuModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MenuModelImplFromJson(json);
@@ -208,12 +223,22 @@ class _$MenuModelImpl implements _MenuModel {
   final String? quantity;
   @override
   final String menuId;
+  final List<IngredientModel>? _ingredients;
+  @override
+  List<IngredientModel>? get ingredients {
+    final value = _ingredients;
+    if (value == null) return null;
+    if (_ingredients is EqualUnmodifiableListView) return _ingredients;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? categoryId;
 
   @override
   String toString() {
-    return 'MenuModel(image: $image, title: $title, description: $description, price: $price, quantity: $quantity, menuId: $menuId, categoryId: $categoryId)';
+    return 'MenuModel(image: $image, title: $title, description: $description, price: $price, quantity: $quantity, menuId: $menuId, ingredients: $ingredients, categoryId: $categoryId)';
   }
 
   @override
@@ -229,14 +254,24 @@ class _$MenuModelImpl implements _MenuModel {
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity) &&
             (identical(other.menuId, menuId) || other.menuId == menuId) &&
+            const DeepCollectionEquality()
+                .equals(other._ingredients, _ingredients) &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, image, title, description, price,
-      quantity, menuId, categoryId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      image,
+      title,
+      description,
+      price,
+      quantity,
+      menuId,
+      const DeepCollectionEquality().hash(_ingredients),
+      categoryId);
 
   /// Create a copy of MenuModel
   /// with the given fields replaced by the non-null parameter values.
@@ -262,6 +297,7 @@ abstract class _MenuModel implements MenuModel {
       final double? price,
       final String? quantity,
       required final String menuId,
+      final List<IngredientModel>? ingredients,
       final String? categoryId}) = _$MenuModelImpl;
 
   factory _MenuModel.fromJson(Map<String, dynamic> json) =
@@ -279,6 +315,8 @@ abstract class _MenuModel implements MenuModel {
   String? get quantity;
   @override
   String get menuId;
+  @override
+  List<IngredientModel>? get ingredients;
   @override
   String? get categoryId;
 
