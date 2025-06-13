@@ -20,13 +20,21 @@ MenuModel _$MenuModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MenuModel {
+  @HiveField(0)
   String? get image => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get title => throw _privateConstructorUsedError;
+  @HiveField(2)
   String? get description => throw _privateConstructorUsedError;
+  @HiveField(3)
   double? get price => throw _privateConstructorUsedError;
+  @HiveField(4)
   String? get quantity => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get menuId => throw _privateConstructorUsedError;
+  @HiveField(6)
   List<IngredientModel>? get ingredients => throw _privateConstructorUsedError;
+  @HiveField(7)
   String? get categoryId => throw _privateConstructorUsedError;
 
   /// Serializes this MenuModel to a JSON map.
@@ -45,14 +53,14 @@ abstract class $MenuModelCopyWith<$Res> {
       _$MenuModelCopyWithImpl<$Res, MenuModel>;
   @useResult
   $Res call(
-      {String? image,
-      String? title,
-      String? description,
-      double? price,
-      String? quantity,
-      String menuId,
-      List<IngredientModel>? ingredients,
-      String? categoryId});
+      {@HiveField(0) String? image,
+      @HiveField(1) String? title,
+      @HiveField(2) String? description,
+      @HiveField(3) double? price,
+      @HiveField(4) String? quantity,
+      @HiveField(5) String menuId,
+      @HiveField(6) List<IngredientModel>? ingredients,
+      @HiveField(7) String? categoryId});
 }
 
 /// @nodoc
@@ -125,14 +133,14 @@ abstract class _$$MenuModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? image,
-      String? title,
-      String? description,
-      double? price,
-      String? quantity,
-      String menuId,
-      List<IngredientModel>? ingredients,
-      String? categoryId});
+      {@HiveField(0) String? image,
+      @HiveField(1) String? title,
+      @HiveField(2) String? description,
+      @HiveField(3) double? price,
+      @HiveField(4) String? quantity,
+      @HiveField(5) String menuId,
+      @HiveField(6) List<IngredientModel>? ingredients,
+      @HiveField(7) String? categoryId});
 }
 
 /// @nodoc
@@ -198,33 +206,40 @@ class __$$MenuModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MenuModelImpl implements _MenuModel {
   _$MenuModelImpl(
-      {this.image,
-      this.title,
-      this.description,
-      this.price,
-      this.quantity,
-      required this.menuId,
-      final List<IngredientModel>? ingredients,
-      this.categoryId})
+      {@HiveField(0) this.image,
+      @HiveField(1) this.title,
+      @HiveField(2) this.description,
+      @HiveField(3) this.price,
+      @HiveField(4) this.quantity,
+      @HiveField(5) required this.menuId,
+      @HiveField(6) final List<IngredientModel>? ingredients,
+      @HiveField(7) this.categoryId})
       : _ingredients = ingredients;
 
   factory _$MenuModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MenuModelImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String? image;
   @override
+  @HiveField(1)
   final String? title;
   @override
+  @HiveField(2)
   final String? description;
   @override
+  @HiveField(3)
   final double? price;
   @override
+  @HiveField(4)
   final String? quantity;
   @override
+  @HiveField(5)
   final String menuId;
   final List<IngredientModel>? _ingredients;
   @override
+  @HiveField(6)
   List<IngredientModel>? get ingredients {
     final value = _ingredients;
     if (value == null) return null;
@@ -234,6 +249,7 @@ class _$MenuModelImpl implements _MenuModel {
   }
 
   @override
+  @HiveField(7)
   final String? categoryId;
 
   @override
@@ -291,33 +307,41 @@ class _$MenuModelImpl implements _MenuModel {
 
 abstract class _MenuModel implements MenuModel {
   factory _MenuModel(
-      {final String? image,
-      final String? title,
-      final String? description,
-      final double? price,
-      final String? quantity,
-      required final String menuId,
-      final List<IngredientModel>? ingredients,
-      final String? categoryId}) = _$MenuModelImpl;
+      {@HiveField(0) final String? image,
+      @HiveField(1) final String? title,
+      @HiveField(2) final String? description,
+      @HiveField(3) final double? price,
+      @HiveField(4) final String? quantity,
+      @HiveField(5) required final String menuId,
+      @HiveField(6) final List<IngredientModel>? ingredients,
+      @HiveField(7) final String? categoryId}) = _$MenuModelImpl;
 
   factory _MenuModel.fromJson(Map<String, dynamic> json) =
       _$MenuModelImpl.fromJson;
 
   @override
+  @HiveField(0)
   String? get image;
   @override
+  @HiveField(1)
   String? get title;
   @override
+  @HiveField(2)
   String? get description;
   @override
+  @HiveField(3)
   double? get price;
   @override
+  @HiveField(4)
   String? get quantity;
   @override
+  @HiveField(5)
   String get menuId;
   @override
+  @HiveField(6)
   List<IngredientModel>? get ingredients;
   @override
+  @HiveField(7)
   String? get categoryId;
 
   /// Create a copy of MenuModel
