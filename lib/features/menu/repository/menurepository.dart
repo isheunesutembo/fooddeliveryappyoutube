@@ -19,4 +19,20 @@ class MenuRepository {
       return menus;
     });
   }
+
+  Stream<List<MenuModel>>getMenuById(String categoryId){
+
+    return _menus.where("categoryId",isEqualTo: categoryId)
+    .snapshots().map((event){
+      List<MenuModel>menus=[];
+      for (var doc in event.docs){
+        menus.add(MenuModel.fromJson(doc.data()as Map<String,dynamic>));
+      }
+      return menus;
+    });
+
+  }
+
+
+
 }

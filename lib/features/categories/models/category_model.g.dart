@@ -10,12 +10,12 @@ _$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
     _$CategoryModelImpl(
       image: json['image'] as String?,
       name: json['name'] as String?,
-      categoryid: json['categoryid'] as String?,
+      categoryId: json['categoryId'] as String?,
     );
 
 Map<String, dynamic> _$$CategoryModelImplToJson(_$CategoryModelImpl instance) =>
     <String, dynamic>{
       'image': instance.image,
       'name': instance.name,
-      'categoryid': instance.categoryid,
+      'categoryId': instance.categoryId,
     };
