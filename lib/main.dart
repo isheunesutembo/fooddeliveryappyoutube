@@ -18,6 +18,9 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Hive.initFlutter();
+  await Hive.openBox("menuFavourites");
+  Hive.registerAdapter(MenuModelAdapter());
   runApp( const ProviderScope(child: MyApp()));
 }
 class MyApp extends ConsumerStatefulWidget {

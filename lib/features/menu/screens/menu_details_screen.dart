@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fooddeliveryappyoutube/features/favourites/controller/favourite_controller.dart';
 import 'package:fooddeliveryappyoutube/features/ingredients/models/ingredient_model.dart';
 import 'package:fooddeliveryappyoutube/features/menu/models/menu_model.dart';
 import 'package:fooddeliveryappyoutube/utils/color.dart';
@@ -37,7 +38,10 @@ class _MenuDetailsPageState extends ConsumerState<MenuDetailsPage> {
                     GestureDetector(onTap: (){
                       Navigator.pop(context);
                     },child: CircleIcon(image: Image.asset("assets/icons/backarrow.png"))),
-                    CircleIcon(image: Image.asset("assets/icons/favourite.png"))
+                    GestureDetector(onTap: (){
+                      ref.read(favouriteControllerProvider.notifier)
+                      .addMenuToFavourite(menu, context);
+                    },child: CircleIcon(image: Image.asset("assets/icons/favourite.png")))
                   ],
                 ),
               ),

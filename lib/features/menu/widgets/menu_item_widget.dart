@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fooddeliveryappyoutube/features/favourites/controller/favourite_controller.dart';
 import 'package:fooddeliveryappyoutube/features/menu/models/menu_model.dart';
 
-class MenuItemWidget extends StatelessWidget {
+class MenuItemWidget extends ConsumerWidget {
   MenuModel menuModel;
    MenuItemWidget({super.key,required this.menuModel});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final favourites=ref.watch(favouriteControllerProvider);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -56,8 +59,14 @@ class MenuItemWidget extends StatelessWidget {
             Positioned(
               top: 10,
               left: 5,
-              child: Image.asset("assets/icons/favourite.png",
-              height: 20,width: 20,),
+              child: GestureDetector(
+                onTap: (){
+     ref.read(favouriteControllerProvider.notifier)
+     .addMenuToFavourite(menuModel, context);
+                },
+                child: Image.asset("assets/icons/favourite.png",
+                height: 20,width: 20,),
+              ),
             ),
              Positioned(
               top: 10,
