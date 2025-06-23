@@ -20,7 +20,7 @@ PromotionModel _$PromotionModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PromotionModel {
-  String? get image => throw _privateConstructorUsedError;
+  List<String>? get images => throw _privateConstructorUsedError;
 
   /// Serializes this PromotionModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $PromotionModelCopyWith<$Res> {
           PromotionModel value, $Res Function(PromotionModel) then) =
       _$PromotionModelCopyWithImpl<$Res, PromotionModel>;
   @useResult
-  $Res call({String? image});
+  $Res call({List<String>? images});
 }
 
 /// @nodoc
@@ -56,13 +56,13 @@ class _$PromotionModelCopyWithImpl<$Res, $Val extends PromotionModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$PromotionModelImplCopyWith<$Res>
       __$$PromotionModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? image});
+  $Res call({List<String>? images});
 }
 
 /// @nodoc
@@ -91,13 +91,13 @@ class __$$PromotionModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = freezed,
+    Object? images = freezed,
   }) {
     return _then(_$PromotionModelImpl(
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -105,17 +105,24 @@ class __$$PromotionModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PromotionModelImpl implements _PromotionModel {
-  _$PromotionModelImpl({this.image});
+  _$PromotionModelImpl({final List<String>? images}) : _images = images;
 
   factory _$PromotionModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PromotionModelImplFromJson(json);
 
+  final List<String>? _images;
   @override
-  final String? image;
+  List<String>? get images {
+    final value = _images;
+    if (value == null) return null;
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'PromotionModel(image: $image)';
+    return 'PromotionModel(images: $images)';
   }
 
   @override
@@ -123,12 +130,13 @@ class _$PromotionModelImpl implements _PromotionModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PromotionModelImpl &&
-            (identical(other.image, image) || other.image == image));
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, image);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_images));
 
   /// Create a copy of PromotionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -148,13 +156,13 @@ class _$PromotionModelImpl implements _PromotionModel {
 }
 
 abstract class _PromotionModel implements PromotionModel {
-  factory _PromotionModel({final String? image}) = _$PromotionModelImpl;
+  factory _PromotionModel({final List<String>? images}) = _$PromotionModelImpl;
 
   factory _PromotionModel.fromJson(Map<String, dynamic> json) =
       _$PromotionModelImpl.fromJson;
 
   @override
-  String? get image;
+  List<String>? get images;
 
   /// Create a copy of PromotionModel
   /// with the given fields replaced by the non-null parameter values.

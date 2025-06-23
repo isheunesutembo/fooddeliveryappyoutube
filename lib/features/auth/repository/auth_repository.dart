@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fooddeliveryappyoutube/core/failure.dart';
@@ -30,6 +29,7 @@ class AuthRepository {
       _firebaseFirestore.collection(Firebaseconstants.usersCollection);
 
   Stream<User?> get authStateChange => _firebaseAuth.authStateChanges();
+   User? user = FirebaseAuth.instance.currentUser;
   late UserModel _userModel;
 
   FutureEither<UserModel> signInWithEmailAndPassword(
@@ -44,13 +44,14 @@ class AuthRepository {
   }
 
   FutureEither<UserModel> signUpWithEmailAndPassword(
-      String email, String password) async {
+      String email,String username, String password) async {
     try {
       _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((userCredential) async {
         if (userCredential.additionalUserInfo!.isNewUser) {
-          UserModel _userModel = UserModel(uid: _firebaseAuth.currentUser!.uid);
+          UserModel _userModel = UserModel(uid: _firebaseAuth.currentUser!.uid,
+          username: username);
           await _users
               .doc(_firebaseAuth.currentUser!.uid)
               .set(_userModel.toJson());

@@ -14,7 +14,7 @@ AsyncValue<void>  build(){
   return const AsyncData(null);
 }
 
-Stream<List<PromotionModel>>getPromotions(){
+Stream<PromotionModel>getPromotions(){
   return _promotionRepository.getPromotions();
 }
 }

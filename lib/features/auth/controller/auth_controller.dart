@@ -37,8 +37,8 @@ void signInWithEmailAndPassword(String email,String password,BuildContext contex
   .showSnackBar(SnackBar(content: Text(failure.message))), (userModel)=>
   ref.read(userProvider.notifier).update((state)=>userModel));
 }
-void signUpWithEmailAndPassword(String email,String password,BuildContext context)async{
-  final user=await _authRepository.signUpWithEmailAndPassword(email, password);
+void signUpWithEmailAndPassword(String email,String username,String password,BuildContext context)async{
+  final user=await _authRepository.signUpWithEmailAndPassword(email,username, password);
 
   user.fold((failure)=>
   ScaffoldMessenger.of(context)

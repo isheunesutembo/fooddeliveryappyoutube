@@ -14,14 +14,9 @@ class PromotionRepository {
   }) : _firebaseFirestore = firebaseFirestore;
   CollectionReference get _promotions =>
       _firebaseFirestore.collection(Firebaseconstants.promotionsCollection);
-  Stream<List<PromotionModel>> getPromotions() {
-    return _promotions.snapshots().map((event) {
-      List<PromotionModel> promotions = [];
-      for (var doc in event.docs) {
-        promotions
-            .add(PromotionModel.fromJson(doc.data() as Map<String, dynamic>));
-      }
-      return promotions;
-    });
+  Stream<PromotionModel> getPromotions() {
+    return _promotions.doc("2gcyqbQs4mQjeCjzxqeV").snapshots().map((event) =>
+        PromotionModel.fromJson((event.data() as Map<String, dynamic>)));
   }
 }
+

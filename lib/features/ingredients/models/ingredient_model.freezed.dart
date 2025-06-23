@@ -20,7 +20,9 @@ IngredientModel _$IngredientModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IngredientModel {
+  @HiveField(0)
   String? get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   double? get price => throw _privateConstructorUsedError;
 
   /// Serializes this IngredientModel to a JSON map.
@@ -39,7 +41,7 @@ abstract class $IngredientModelCopyWith<$Res> {
           IngredientModel value, $Res Function(IngredientModel) then) =
       _$IngredientModelCopyWithImpl<$Res, IngredientModel>;
   @useResult
-  $Res call({String? name, double? price});
+  $Res call({@HiveField(0) String? name, @HiveField(1) double? price});
 }
 
 /// @nodoc
@@ -81,7 +83,7 @@ abstract class _$$IngredientModelImplCopyWith<$Res>
       __$$IngredientModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, double? price});
+  $Res call({@HiveField(0) String? name, @HiveField(1) double? price});
 }
 
 /// @nodoc
@@ -117,14 +119,16 @@ class __$$IngredientModelImplCopyWithImpl<$Res>
 
 @JsonSerializable(explicitToJson: true)
 class _$IngredientModelImpl implements _IngredientModel {
-  _$IngredientModelImpl({this.name, this.price});
+  _$IngredientModelImpl({@HiveField(0) this.name, @HiveField(1) this.price});
 
   factory _$IngredientModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$IngredientModelImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String? name;
   @override
+  @HiveField(1)
   final double? price;
 
   @override
@@ -163,15 +167,18 @@ class _$IngredientModelImpl implements _IngredientModel {
 }
 
 abstract class _IngredientModel implements IngredientModel {
-  factory _IngredientModel({final String? name, final double? price}) =
-      _$IngredientModelImpl;
+  factory _IngredientModel(
+      {@HiveField(0) final String? name,
+      @HiveField(1) final double? price}) = _$IngredientModelImpl;
 
   factory _IngredientModel.fromJson(Map<String, dynamic> json) =
       _$IngredientModelImpl.fromJson;
 
   @override
+  @HiveField(0)
   String? get name;
   @override
+  @HiveField(1)
   double? get price;
 
   /// Create a copy of IngredientModel

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fooddeliveryappyoutube/fakedata/fakedata.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fooddeliveryappyoutube/features/promotion/controller/promotion_controller.dart';
 import 'package:fooddeliveryappyoutube/utils/widgets/error_text.dart';
@@ -16,11 +15,11 @@ class PromotionsWidget extends ConsumerWidget {
       return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: CarouselSlider(
-        items: data.map((i){
+        items: data.images!.map((i){
           return Builder(
             builder: (BuildContext context){
               return CachedNetworkImage(
-                 imageUrl: i.image!,
+                 imageUrl: i,
                 height: 160,
                 width: double.infinity,
                 fit: BoxFit.cover,

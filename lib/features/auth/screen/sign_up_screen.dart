@@ -28,7 +28,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   signUpWithAndPassword(BuildContext context,
   String email,String username,String password){
     ref.read(authControllerProvider.notifier)
-    .signUpWithEmailAndPassword(email, password, context);
+    .signUpWithEmailAndPassword(email, username,password, context);
   }
 
   @override
