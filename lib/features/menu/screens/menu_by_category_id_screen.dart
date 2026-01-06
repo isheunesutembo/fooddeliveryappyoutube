@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fooddeliveryappyoutube/features/menu/controller/menu_controller.dart';
 import 'package:fooddeliveryappyoutube/features/menu/screens/menu_details_screen.dart';
 import 'package:fooddeliveryappyoutube/features/menu/widgets/menu_item_widget.dart';
+import 'package:fooddeliveryappyoutube/utils/color.dart';
 import 'package:fooddeliveryappyoutube/utils/widgets/error_text.dart';
 import 'package:fooddeliveryappyoutube/utils/widgets/loader.dart';
 
@@ -17,6 +18,7 @@ class MenuByCategoryIdScreen extends ConsumerWidget {
       return    data.isNotEmpty?  Scaffold(
         appBar: AppBar(
           actionsIconTheme: Theme.of(context).iconTheme,
+          backgroundColor: AppColor.primaryColor,
         ),
         body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -26,12 +28,12 @@ class MenuByCategoryIdScreen extends ConsumerWidget {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return GestureDetector(onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuDetailsPage(),settings: RouteSettings(arguments: data[index])));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const MenuDetailsPage(),settings: RouteSettings(arguments: data[index])));
             },child: MenuItemWidget(menuModel: data[index]));
           }),
       ):  Scaffold(appBar: AppBar(
           actionsIconTheme: Theme.of(context).iconTheme,
         ),body: const Center(child: Text("No menu items"),));
-    }, error: (error,stackTrace)=>ErrorText(error: error.toString()), loading: ()=>Loader());
+    }, error: (error,stackTrace)=>ErrorText(error: error.toString()), loading: ()=>const Loader());
   }
 }

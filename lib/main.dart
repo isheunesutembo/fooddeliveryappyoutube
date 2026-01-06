@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fooddeliveryappyoutube/core/theme/apptheme.dart';
 import 'package:fooddeliveryappyoutube/features/auth/controller/auth_controller.dart';
 import 'package:fooddeliveryappyoutube/features/ingredients/models/ingredient_model.dart';
 import 'package:fooddeliveryappyoutube/features/menu/models/menu_model.dart';
@@ -50,6 +51,7 @@ class _MyAppState extends ConsumerState<MyApp> {
         data: (data) => MaterialApp.router(
               color: AppColor.primaryColor,
               debugShowCheckedModeBanner: false,
+              theme: AppTheme.lightTheme,
               routerDelegate: RoutemasterDelegate(routesBuilder: (context) {
                 if (data != null) {
                   getData(ref, data);

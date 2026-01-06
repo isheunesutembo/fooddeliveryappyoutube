@@ -11,6 +11,9 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String,
       username: json['username'] as String?,
       profileImage: json['profileImage'] as String?,
+      cart: (json['cart'] as List<dynamic>?)
+          ?.map((e) => CartModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
@@ -18,4 +21,5 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'uid': instance.uid,
       'username': instance.username,
       'profileImage': instance.profileImage,
+      'cart': instance.cart,
     };

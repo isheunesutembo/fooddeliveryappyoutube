@@ -21,10 +21,10 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
   List<Widget>pages=[
-    HomeScreen(),
-    FavouriteScreen(),
-    CartScreen(),
-    SettingsScreen()
+    const HomeScreen(),
+    const FavouriteScreen(),
+    const CartScreen(),
+    const SettingsScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class _MainScreenState extends State<MainScreen> {
         items:const [
          
            BottomNavigationBarItem(
+            backgroundColor: AppColor.primaryColor,
             icon: Icon(Icons.home,
             color: Colors.black,
             size: 30,

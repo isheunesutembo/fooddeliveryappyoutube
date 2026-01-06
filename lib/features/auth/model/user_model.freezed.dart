@@ -23,6 +23,7 @@ mixin _$UserModel {
   String get uid => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get profileImage => throw _privateConstructorUsedError;
+  List<CartModel>? get cart => throw _privateConstructorUsedError;
 
   /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,11 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String uid, String? username, String? profileImage});
+  $Res call(
+      {String uid,
+      String? username,
+      String? profileImage,
+      List<CartModel>? cart});
 }
 
 /// @nodoc
@@ -60,6 +65,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? uid = null,
     Object? username = freezed,
     Object? profileImage = freezed,
+    Object? cart = freezed,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -74,6 +80,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.profileImage
           : profileImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      cart: freezed == cart
+          ? _value.cart
+          : cart // ignore: cast_nullable_to_non_nullable
+              as List<CartModel>?,
     ) as $Val);
   }
 }
@@ -86,7 +96,11 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uid, String? username, String? profileImage});
+  $Res call(
+      {String uid,
+      String? username,
+      String? profileImage,
+      List<CartModel>? cart});
 }
 
 /// @nodoc
@@ -105,6 +119,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? uid = null,
     Object? username = freezed,
     Object? profileImage = freezed,
+    Object? cart = freezed,
   }) {
     return _then(_$UserModelImpl(
       uid: null == uid
@@ -119,6 +134,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.profileImage
           : profileImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      cart: freezed == cart
+          ? _value._cart
+          : cart // ignore: cast_nullable_to_non_nullable
+              as List<CartModel>?,
     ));
   }
 }
@@ -126,7 +145,12 @@ class __$$UserModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
-  _$UserModelImpl({required this.uid, this.username, this.profileImage});
+  _$UserModelImpl(
+      {required this.uid,
+      this.username,
+      this.profileImage,
+      final List<CartModel>? cart})
+      : _cart = cart;
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -137,10 +161,19 @@ class _$UserModelImpl implements _UserModel {
   final String? username;
   @override
   final String? profileImage;
+  final List<CartModel>? _cart;
+  @override
+  List<CartModel>? get cart {
+    final value = _cart;
+    if (value == null) return null;
+    if (_cart is EqualUnmodifiableListView) return _cart;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, username: $username, profileImage: $profileImage)';
+    return 'UserModel(uid: $uid, username: $username, profileImage: $profileImage, cart: $cart)';
   }
 
   @override
@@ -152,12 +185,14 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.profileImage, profileImage) ||
-                other.profileImage == profileImage));
+                other.profileImage == profileImage) &&
+            const DeepCollectionEquality().equals(other._cart, _cart));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, username, profileImage);
+  int get hashCode => Object.hash(runtimeType, uid, username, profileImage,
+      const DeepCollectionEquality().hash(_cart));
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -179,7 +214,8 @@ abstract class _UserModel implements UserModel {
   factory _UserModel(
       {required final String uid,
       final String? username,
-      final String? profileImage}) = _$UserModelImpl;
+      final String? profileImage,
+      final List<CartModel>? cart}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -190,6 +226,8 @@ abstract class _UserModel implements UserModel {
   String? get username;
   @override
   String? get profileImage;
+  @override
+  List<CartModel>? get cart;
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
